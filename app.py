@@ -11,7 +11,8 @@ UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = {"txt", "pdf", "zip", "mp4", "mp3", "jpg", "jpeg", "gif", "png", "docx", "doc", "ppx"}
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB Max file size
+app.config['MAX_CONTENT_LENGTH'] = 3 * 1024 * 1024 * 1024  # 3GB Max file size
+
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 
 def allowed_file(filename):
