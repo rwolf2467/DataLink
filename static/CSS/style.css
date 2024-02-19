@@ -1,0 +1,33 @@
+body {
+    background-color: #3E3232;
+}
+div {
+    background-color: #503C3C;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+form {
+    background-color: #7E6363;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+input[type="file"] {
+    margin-bottom: 10px;
+    background-color: #A87C7C;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type="submit"] {
+    background-color: #A87C7C;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 37px;
+}

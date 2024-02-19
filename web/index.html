@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
     <title>DataLink</title>
 </head>
 <body>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="files[]" multiple>
-        <input type="submit" value="Hochladen">
-    </form>
+    <div>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="files[]" multiple>
+            <input type="submit" value="Hochladen">
+        </form>
+    </div>
 </body>
 </html>

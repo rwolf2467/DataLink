@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 app = flask.Flask(__name__, template_folder="web", static_folder="static")
 
 UPLOAD_FOLDER = "uploads"
-ALLOWED_EXTENSIONS = {"txt", "pdf", "zip", "mp4", "mp3", "jpg", "jpeg", "gif", "png", "docx", "doc", "ppx"}
+ALLOWED_EXTENSIONS = {"txt", "pdf", "zip", "mp4", "mp3", "jpg", "jpeg", "gif", "png", "docx", "doc", "ppx", "ppt", "xlsx", "xlsx", "mov"}
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 3 * 1024 * 1024 * 1024  # 3GB Max file size
