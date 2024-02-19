@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 app = flask.Flask(__name__, template_folder="web", static_folder="static")
 
 UPLOAD_FOLDER = "uploads"
-ALLOWED_EXTENSIONS = {"txt", "pdf", "zip", "mp4", "mp3", "jpg", "jpeg", "gif", "png", "docx", "doc", "ppx", "ppt", "xlsx", "xlsx", "mov"}
+ALLOWED_EXTENSIONS = {"txt", "pdf", "zip", "mp4", "mp3", "jpg", "jpeg", "gif", "png", "docx", "doc", "ppx", "ppt", "xlsx", "xlsx", "mov", "wav"}
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 3 * 1024 * 1024 * 1024  # 3GB Max file size
@@ -56,7 +56,7 @@ def upload_file():
         zip_name = create_zip(file_list)
         return redirect(url_for('success', zip_name=zip_name))
     else:
-        return 'Ungültige Dateien'
+        return render_template("error.html")
 
 @app.route('/success/<zip_name>')
 def success(zip_name):

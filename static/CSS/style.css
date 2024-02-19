@@ -31,3 +31,24 @@ input[type="submit"] {
     cursor: pointer;
     height: 37px;
 }
+.div2{
+    background-color: #7E6363;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.btn {
+    background-color: #A87C7C;
+    border: solid #7E6363;
+    border-radius: 10px;
+    height: 40px;
+    width: 120px;
+}
+h1 {
+    font-family: Arial, serif;
+    color: #F7DED0;
+}
+h3 {
+    font-family: Arial, serif;
+    color: #F7DED0;
+}

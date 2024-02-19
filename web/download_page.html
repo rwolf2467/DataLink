@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
     <title>DataLink - Download</title>
 </head>
 <body>
     <div class="container">
         <h2>Download-Seite</h2>
-        <p>Datei: {{ zip_name }}</p>
-        <p>Größe: {{ file_size|round(2) }} MB</p>
-        <a class="btn btn-primary" href="{{ url_for('download_file', zip_name=zip_name) }}" role="button">Download</a>
+        <div class="div2">
+            <p><b>Datei:</b> {{ zip_name }}</p>
+            <p><b>Größe:</b> {{ file_size|round(2) }} MB</p>
+            <a class="btn" href="{{ url_for('download_file', zip_name=zip_name) }}" role="button">Download</a>
+        </div>
     </div>
 </body>
 </html>
