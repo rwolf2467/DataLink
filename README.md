@@ -17,9 +17,8 @@ DataLink is a Python-based solution for effortlessly sharing files. Simplify you
 
 ## 💻 Technologies Used
 
-- Backend: Python, Flask, [Add any other backend technologies]
-- Frontend: [Add any frontend technologies if applicable]
-- Database: [Add your database technology]
+- Backend: Python, Flask
+- Frontend: HTML, CSS
 
 ## 📝 Installation
 
