@@ -25,7 +25,7 @@ DataLink is a Python-based solution for effortlessly sharing files. Simplify you
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/DataLink.git
+   git clone https://github.com/rwolf2467/DataLink.git
    ```
 2. **Install dependencies:**
    ```bash
