@@ -1,22 +1,26 @@
-import flask
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory, send_file
 import os
-import zipfile
 import secrets
+import zipfile
+
+import flask
+from flask import render_template, request, redirect, url_for, send_file
 from werkzeug.utils import secure_filename
 
 app = flask.Flask(__name__, template_folder="web", static_folder="static")
 
 UPLOAD_FOLDER = "uploads"
-ALLOWED_EXTENSIONS = {"txt", "pdf", "zip", "mp4", "mp3", "jpg", "jpeg", "gif", "png", "docx", "doc", "ppx", "ppt", "xlsx", "xlsx", "mov", "wav"}
+ALLOWED_EXTENSIONS = {"txt", "pdf", "zip", "mp4", "mp3", "jpg", "jpeg", "gif", "png", "docx", "doc", "ppx", "ppt",
+                      "xlsx", "xlsx", "mov", "wav", "py", "java", "jar"}
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 3 * 1024 * 1024 * 1024  # 3GB Max file size
 
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 def create_zip(file_list):
     zip_name = f'DataLink-{secrets.token_hex(10)}.zip'
@@ -24,14 +28,16 @@ def create_zip(file_list):
 
     with zipfile.ZipFile(zip_path, 'w') as zip_file:
         for file in file_list:
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], file)
+            file_path = str(os.path.join(app.config['UPLOAD_FOLDER'], file))
             zip_file.write(file_path, file)
 
     return zip_name
 
+
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html")  # noqa
+
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -56,23 +62,24 @@ def upload_file():
         zip_name = create_zip(file_list)
         return redirect(url_for('success', zip_name=zip_name))
     else:
-        return render_template("error.html")
+        return render_template("error.html")  # noqa
+
 
 @app.route('/success/<zip_name>')
 def success(zip_name):
-    return render_template('success.html', zip_name=zip_name)
-
+    return render_template('success.html', zip_name=zip_name)  # noqa
 
 
 @app.route('/download_page/<zip_name>')
 def download_page(zip_name):
     zip_path = os.path.join(app.config['UPLOAD_FOLDER'], zip_name)
     file_size = os.path.getsize(zip_path) / (1024 * 1024)  # Convert to MB
-    return render_template('download_page.html', zip_name=zip_name, file_size=file_size)
+    return render_template('download_page.html', zip_name=zip_name, file_size=file_size)  # noqa
+
 
 @app.route('/download_file/<zip_name>')
 def download_file(zip_name):
-    zip_path = os.path.join(app.config['UPLOAD_FOLDER'], zip_name)
+    zip_path = str(os.path.join(app.config['UPLOAD_FOLDER'], zip_name))
     return send_file(zip_path, as_attachment=True)
 
 

@@ -7,9 +7,13 @@
     <title>DataLink</title>
 </head>
 <body>
-    <div>
+    <div id="home">
         <h1>DataLink</h1>
         <h3>Share your files!</h3>
+        <p>DataLink is a project that allows people to share their files anonymously without deleting them. Click here to upload your files.</p>
+    </div>
+    <div id="uploader">
+        <h3>Upload you files!</h3>
         <form action="/upload" method="post" enctype="multipart/form-data">
             <input type="file" name="files[]" multiple>
             <input type="submit" value="Hochladen">
