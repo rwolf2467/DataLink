@@ -1,29 +1,34 @@
 body {
-    background-color: #3E3232;
+    background-color: #3E3232; /* Dunkelbrauner Hintergrund für das gesamte Dokument */
+    color: #F7DED0; /* Helle Schriftfarbe */
 }
+
 div {
-    background-color: #503C3C;
+    background-color: #503C3C; /* Dunkelrot für allgemeine Container */
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
 }
+
 form {
-    background-color: #7E6363;
+    background-color: #7E6363; /* Mittelrot für Formulare */
     padding: 15px;
     border-radius: 10px;
     margin-top: 20px;
 }
+
 input[type="file"] {
     margin-bottom: 10px;
-    background-color: #A87C7C;
+    background-color: #A87C7C; /* Helleres Rot für Datei-Upload-Button */
     color: #fff;
     padding: 8px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
 input[type="submit"] {
-    background-color: #A87C7C;
+    background-color: #A87C7C; /* Helleres Rot für Submit-Button */
     color: #fff;
     padding: 8px 15px;
     border: none;
@@ -31,34 +36,35 @@ input[type="submit"] {
     cursor: pointer;
     height: 37px;
 }
-.div2{
-    background-color: #7E6363;
+
+.div2 {
+    background-color: #7E6363; /* Mittelrot für Container div2 */
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
 }
+
 .btn {
-    background-color: #A87C7C;
+    background-color: #A87C7C; /* Helleres Rot für allgemeine Buttons */
     border: solid #7E6363;
     border-radius: 10px;
     height: 40px;
     width: 120px;
-    color: #F7DED0;
-    transition: all 0.3s ease; /* Hier wird der Übergang für alle Eigenschaften mit 0.3 Sekunden Dauer und einer ease-Funktion definiert */
+    transition: all 0.3s ease-in-out;
 }
 
 .btn:hover {
-    background-color: #503C3C;
+    background-color: #503C3C; /* Dunkleres Rot für Hover-Effekt */
     border: solid #503C3C;
     border-radius: 25px;
-    color: #F7DED0;
 }
 
 h1, h2, h3 {
     font-family: Arial, serif;
-    color: #F7DED0;
+    color: #F7DED0; /* Helle Schriftfarbe für Überschriften */
 }
-p{
+
+p {
     font-family: Arial, serif;
-    color: #F7DED0;
+    color: #F7DED0; /* Helle Schriftfarbe für Text */
 }
