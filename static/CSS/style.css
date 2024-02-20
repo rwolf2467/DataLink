@@ -43,12 +43,18 @@ input[type="submit"] {
     border-radius: 10px;
     height: 40px;
     width: 120px;
+    color: #F7DED0;
+    transition: all 0.3s ease; /* Hier wird der Übergang für alle Eigenschaften mit 0.3 Sekunden Dauer und einer ease-Funktion definiert */
 }
-h1 {
-    font-family: Arial, serif;
+
+.btn:hover {
+    background-color: #503C3C;
+    border: solid #503C3C;
+    border-radius: 25px;
     color: #F7DED0;
 }
-h3 {
+
+h1, h2, h3 {
     font-family: Arial, serif;
     color: #F7DED0;
 }
