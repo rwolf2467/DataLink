@@ -13,7 +13,7 @@ DataLink is a Python-based solution for effortlessly sharing files. Simplify you
 ## 🧑‍💻 Developers
 
 - **Backend:** [Red_Wolf2467](https://github.com/rwolf2467)
-- **Frontend:** [Matti Krebelder](https://github.com/Matti-Krebelder)
+- **Frontend:** [Red_Wolf2467](https://github.com/rwolf2467)
 
 ## 💻 Technologies Used
 
