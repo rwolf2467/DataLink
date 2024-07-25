@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="container">
-        <h2>Download-Seite</h2>
+        <h2>Download-Page</h2>
         <div class="div2">
-            <p><b>Datei:</b> {{ zip_name }}</p>
-            <p><b>Größe:</b> {{ file_size|round(2) }} MB</p>
+            <p><b>File:</b> {{ zip_name }}</p>
+            <p><b>Size:</b> {{ file_size|round(2) }} MB</p>
             <a class="btn" href="{{ url_for('download_file', zip_name=zip_name) }}" role="button">Download</a>
         </div>
     </div>
