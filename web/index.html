@@ -1,24 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
-    <title>DataLink</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataLink | Avocloud.net</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}" />
+    <style>
+        .tabs {
+            display: flex;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            margin-right: -1px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            font-family: var(--font-family);
+        }
+
+        .tab:first-child {
+            border-radius: 8px 0 0 0;
+        }
+
+        .tab:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
+        .tab.active {
+            background: rgba(147, 51, 234, 0.2);
+            color: rgb(216, 180, 254);
+            border-color: #9333ea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .upload-section {
+            margin-top: 2rem;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            border-radius: 6px;
+            resize: vertical;
+        }
+
+        .submit-btn.full-width {
+            width: 100%;
+            margin-top: 1rem;
+            font-family: var(--font-family);
+        }
+    </style>
 </head>
+
 <body>
-    <div id="home">
-        <h1>DataLink</h1>
-        <h3>Share your files!</h3>
-        <p>DataLink is a project that allows people to share their files anonymously without automatically deleting them. Click here to upload your files.</p>
-        <p>If you have any problems, please feel free to contact our support. You can find it on our <a href="https://link.pyropixle.com/discord/">Discord server</a>.</p>
+    <div id="gradientbar"></div>
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <main>
+            <section style="margin-top: 5vh" id="datalink">
+                <div class="section-header">
+                    <div class="section-title">DATALINK</div>
+                    <h2>Share your files or text!</h2>
+                </div>
+
+                <div class="project-card">
+                    <div id="home">
+                        <h3>Upload & Share Anonymously</h3>
+                        <p>
+                            DataLink lets you share files or paste text (logs, code, configs) — no auto-deletion.
+                        </p>
+                        <p>
+                            Need help? Join our
+                            <a href="https://avocloud.net/discord/" target="_blank" style="color: var(--text-color)">
+                                <i class="fa-brands fa-discord"></i> Discord
+                            </a>.
+                        </p>
+                    </div>
+
+                    
+                    <div class="tabs">
+                        <div class="tab active" data-tab="text">
+                            <i class="fa-regular fa-clipboard"></i> Text Input
+                        </div>
+                        <div class="tab" data-tab="files">
+                            <i class="fa-solid fa-file-arrow-up"></i> Upload Files
+                        </div>
+                    </div>
+                    
+                    <div id="text-tab" class="tab-content active">
+                        <div id="uploader" style="margin-top: 2rem;">
+                            <h3><i class="fa-regular fa-clipboard"></i> Share your text!</h3>
+                            <form action="/upload" method="post" enctype="multipart/form-data"
+                                style="margin-top: 1rem;">
+                                <div style="margin-bottom: 1rem;">
+                                    <label for="file-type">Select content type:</label>
+                                    <select name="file_type" id="file-type"
+                                        style="width: 100%; padding: 0.5rem; background: var(--card-background); border: 1px solid var(--border-color); color: var(--text-color); font-family: var(--font-family);">
+                                        <option value="auto">Auto-detect</option>
+                                        <option value="python">Python (.py)</option>
+                                        <option value="javascript">JavaScript (.js)</option>
+                                        <option value="html">HTML (.html)</option>
+                                        <option value="css">CSS (.css)</option>
+                                        <option value="json">JSON (.json)</option>
+                                        <option value="bash">Bash/Shell (.sh)</option>
+                                        <option value="yaml">YAML (.yml)</option>
+                                        <option value="markdown">Markdown (.md)</option>
+                                        <option value="java">Java (.java)</option>
+                                        <option value="xml">XML (.xml)</option>
+                                        <option value="txt">Plain Text (.txt)</option>
+                                    </select>
+                                </div>
+
+                                <textarea name="text_content" placeholder="Paste your code, log, or text here..."
+                                    style="width: 100%; min-height: 120px; padding: 0.75rem; background: var(--card-background); border: 1px solid var(--border-color); color: var(--text-color); font-family: monospace; margin-bottom: 1rem; resize: vertical;"></textarea>
+                                <button type="submit" class="submit-btn full-width">
+                                    <i class="fa-solid fa-paper-plane"></i> Share Text
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    
+                    <div id="files-tab" class="tab-content">
+                        <div class="upload-section">
+                            <h3><i class="fa-solid fa-file-arrow-up"></i> Upload your files!</h3>
+                            <form action="/upload" method="post" enctype="multipart/form-data">
+                                <input type="file" name="files[]" multiple
+                                    style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; background: var(--card-background); border: 1px solid var(--border-color); color: var(--text-color); border-radius: 6px; font-family: var(--font-family);">
+                                <button type="submit" class="submit-btn full-width">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i> Upload Files
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="project-date">Avocloud.net</div>
+                </div>
+            </section>
+
+            <footer style="margin-top: 15vh"></footer>
+        </main>
     </div>
-    <div id="uploader">
-        <h3>Upload you files!</h3>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="files[]" multiple>
-            <input type="submit" value="Hochladen", class="btn">
-        </form>
-    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Entferne active von allen Tabs und Inhalten
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                // Setze active auf den geklickten Tab
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+    </script>
 </body>
+
 </html>
