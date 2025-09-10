@@ -17,8 +17,8 @@ DataLink is a Python-based solution for effortlessly sharing files. Simplify you
 
 ## 💻 Technologies Used
 
-- Backend: Python, Flask
-- Frontend: HTML, CSS
+- Backend: Python, Quart
+- Frontend: HTML, CSS, JS
 
 ## 📝 Installation
 
@@ -49,6 +49,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 📧 Contact
 
-If you have any questions or suggestions, feel free to contact us at [redwolf2467@pyropixle.com](mailto:redwolf2467@pyropixle.com) or on [our Discord server](https://link.pyropixle.com/discord).
+If you have any questions or suggestions, feel free to contact us at [redwolf2467@pyropixle.com](mailto:redwolf2467@avocloud.net) or on [our Discord server](https://avocloud.net/discord/).
 
 Happy sharing! 🌐📤
